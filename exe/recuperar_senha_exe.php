@@ -3,15 +3,19 @@
 	require 'conexao_exe.php';
 	require '../phpmailer/src/PHPMailer.php'
 
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	use PHPMailer\PHPMailer\Exception;
 
-	$mail = new PHPMailer;
+
+	$mail = new PHPMailer(true);
 	$mail->isSMTP();
 	$mail->Host = 'smtp.gmail.com';
 	$mail->SMTPAuth = true;
 	$mail->SMTPSecure = 'tls';
 	$mail->Username = 'contato.timetable@gmail.com';
 	$mail->Password = 'timetable2020';
-	$mail->Port = 587;
+	$mail->Port = 465;
 
 	// Pegando dados via POST
 	$email = $_POST['email'];
